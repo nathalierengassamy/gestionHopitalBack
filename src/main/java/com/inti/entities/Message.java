@@ -15,15 +15,15 @@ public class Message {
 	private Long idRDV;
 	private String libelle;
 	@ManyToOne
-	private Utilisateur utilisateur;
+	private Utilisateur user;
 
 	public Message() {
 	}
 
-	public Message(String libelle, Utilisateur utilisateur) {
+	public Message(String libelle, Utilisateur user) {
 		super();
 		this.libelle = libelle;
-		this.utilisateur = utilisateur;
+		this.user = user;
 	}
 
 	public Long getIdRDV() {
@@ -43,16 +43,16 @@ public class Message {
 	}
 
 	public Utilisateur getUtilisateur() {
-		return utilisateur;
+		return user;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+	public void setUtilisateur(Utilisateur user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "Message [idRDV=" + idRDV + ", libelle=" + libelle + ", utilisateur=" + utilisateur + "]";
+		return "Message [idRDV=" + idRDV + ", libelle=" + libelle + ", user=" + user + "]";
 	}
 
 }

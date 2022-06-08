@@ -2,6 +2,7 @@ package com.inti.entities;
 
 import java.util.Date;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,18 +19,18 @@ public class RDV {
 	private Date dateRDV;
 	private String diagnostic;
 	@ManyToOne
-	private Utilisateur utilisateur;
+	private Utilisateur user;
 
 	public RDV() {
 
 	}
 
-	public RDV(String typeRDV, String heureRDV, Date dateRDV, String diagnostic, Utilisateur utilisateur) {
+	public RDV(String typeRDV, String heureRDV, Date dateRDV, String diagnostic, Utilisateur user) {
 		this.typeRDV = typeRDV;
 		this.heureRDV = heureRDV;
 		this.dateRDV = dateRDV;
 		this.diagnostic = diagnostic;
-		this.utilisateur = utilisateur;
+		this.user = user;
 	}
 
 	public Long getIdRDV() {
@@ -73,17 +74,17 @@ public class RDV {
 	}
 
 	public Utilisateur getUtilisateur() {
-		return utilisateur;
+		return user;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+	public void setUtilisateur(Utilisateur user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "RDV [idRDV=" + idRDV + ", typeRDV=" + typeRDV + ", heureRDV=" + heureRDV + ", dateRDV=" + dateRDV
-				+ ", diagnostic=" + diagnostic + ", utilisateur=" + utilisateur + "]";
+				+ ", diagnostic=" + diagnostic + ", user=" + user + "]";
 	}
 
 }

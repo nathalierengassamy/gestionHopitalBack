@@ -1,6 +1,7 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +20,13 @@ public class Ordonnance implements Serializable{
 	private Long idOrdonnance;
 	private String Consigne;
 	private String Medicament;
-	
 	@ManyToOne
 	@JoinColumn(name="id_dossier")
 	private Dossier dossier;
-
+	@ManyToOne
+	@JoinColumn(name = "id_user")
+	private Utilisateur user;
+	
 	public Ordonnance() {
 	}
 
@@ -31,6 +34,13 @@ public class Ordonnance implements Serializable{
 		this.Consigne = consigne;
 		this.Medicament = medicament;
 		this.dossier = dossier;
+	}
+	
+	public Ordonnance(String consigne, String medicament, Dossier dossier, Utilisateur user) {
+		this.Consigne = consigne;
+		this.Medicament = medicament;
+		this.dossier = dossier;
+		this.user = user;
 	}
 
 	public Long getIdOrdonnance() {
@@ -63,6 +73,14 @@ public class Ordonnance implements Serializable{
 
 	public void setDossier(Dossier dossier) {
 		this.dossier = dossier;
+	}
+	
+	public Utilisateur getUtilisateur() {
+		return user;
+	}
+
+	public void setUtilisateur(Utilisateur user) {
+		this.user = user;
 	}
 
 	@Override

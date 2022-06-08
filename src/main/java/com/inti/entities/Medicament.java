@@ -33,19 +33,19 @@ public class Medicament implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="id_user")
-	private Utilisateur utilisateur;
+	private Utilisateur user;
 
 	public Medicament() {
 	}
 
 	public Medicament(String libelleMedicament, int prixMedicament, Date dateExpiration, double stock,
-			Set<Ordonnance> ordonnances, Utilisateur utilisateur) {
+			Set<Ordonnance> ordonnances, Utilisateur user) {
 		this.libelleMedicament = libelleMedicament;
 		this.prixMedicament = prixMedicament;
 		this.dateExpiration = dateExpiration;
 		this.stock = stock;
 		this.ordonnances = ordonnances;
-		this.utilisateur = utilisateur;
+		this.user = user;
 	}
 
 	public Long getIdMedicament() {
@@ -97,18 +97,18 @@ public class Medicament implements Serializable{
 	}
 
 	public Utilisateur getUtilisateur() {
-		return utilisateur;
+		return user;
 	}
 
-	public void setUtilisateur(Utilisateur utilisateur) {
-		this.utilisateur = utilisateur;
+	public void setUtilisateur(Utilisateur user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "Medicament [idMedicament=" + idMedicament + ", libelleMedicament=" + libelleMedicament
 				+ ", prixMedicament=" + prixMedicament + ", dateExpiration=" + dateExpiration + ", stock=" + stock
-				+ ", ordonnances=" + ordonnances + ", utilisateur=" + utilisateur + "]";
+				+ ", ordonnances=" + ordonnances + ", user=" + user + "]";
 	}
 	
 }

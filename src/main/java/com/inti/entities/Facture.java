@@ -24,16 +24,16 @@ public class Facture {
 	private String destinataire;
 	@ManyToOne()
 	@JoinColumn(name = "id_dossier")
-	private Dossier dossierFacture;
+	private Dossier dossier;
 
 	public Facture() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Facture(double montant, String destinataire, Dossier dossierFacture) {
+	public Facture(double montant, String destinataire, Dossier dossier) {
 		this.montant = montant;
 		this.destinataire = destinataire;
-		this.dossierFacture = dossierFacture;
+		this.dossier = dossier;
 	}
 
 	public Long getIdFacture() {
@@ -61,17 +61,17 @@ public class Facture {
 	}
 
 	public Dossier getDossierFacture() {
-		return dossierFacture;
+		return dossier;
 	}
 
-	public void setDossierFacture(Dossier dossierFacture) {
-		this.dossierFacture = dossierFacture;
+	public void setDossierFacture(Dossier dossier) {
+		this.dossier = dossier;
 	}
 
 	@Override
 	public String toString() {
 		return "Facture [idFacture=" + idFacture + ", montant=" + montant + ", destinataire=" + destinataire
-				+ ", dossierFacture=" + dossierFacture + "]";
+				+ ", dossier=" + dossier + "]";
 	}
 
 }

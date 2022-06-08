@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Column;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -23,13 +24,15 @@ public class Dossier implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idDossier;
-	@OneToMany(mappedBy = "dossierFacture")
+	@OneToMany(mappedBy = "dossier")
 	private List<Facture> factures = new ArrayList<>();
-	@OneToMany(mappedBy = "dossierOrdonnance")
+	@OneToMany(mappedBy = "dossier")
 	private List<Ordonnance> ordonnances = new ArrayList<>();
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "Localisation", joinColumns = @JoinColumn(name = "id_dossier", referencedColumnName = "idDossier"), inverseJoinColumns = @JoinColumn(name = "id_chambre", referencedColumnName = "idChambre"))
 	private Set<Chambre> chambres = new HashSet<>();
+	@OneToOne
+	private Utilisateur user;
 
 	public Dossier() {
 		// TODO Auto-generated constructor stub
@@ -39,6 +42,15 @@ public class Dossier implements Serializable {
 		this.factures = factures;
 		this.ordonnances = ordonnances;
 		this.chambres = chambres;
+	}
+	
+	public Dossier(List<Facture> factures, List<Ordonnance> ordonnances, Set<Chambre> chambres,
+			Utilisateur user) {
+		super();
+		this.factures = factures;
+		this.ordonnances = ordonnances;
+		this.chambres = chambres;
+		this.user = user;
 	}
 
 	public Long getIdDossier() {
@@ -71,6 +83,14 @@ public class Dossier implements Serializable {
 
 	public void setChambres(Set<Chambre> chambres) {
 		this.chambres = chambres;
+	}
+	
+	public Utilisateur getUtilisateur() {
+		return user;
+	}
+
+	public void setUtilisateur(Utilisateur user) {
+		this.user = user;
 	}
 
 	@Override

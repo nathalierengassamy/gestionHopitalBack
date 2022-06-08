@@ -2,6 +2,7 @@ package com.inti.controller;
 
 import java.util.List;
 
+
 import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,25 +18,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Chambre;
+import com.inti.entities.Chambre;
+import com.inti.service.interfaces.IChambreService;
 import com.inti.service.interfaces.IChambreService;
 
 @RestController // RestFul WS
 @CrossOrigin
 public class ChambreController {
+
 	@Autowired
 	IChambreService chambreService;
 
-	@GetMapping("/chambres")
+	@GetMapping("/chambres") 
 	public List<Chambre> findAll() {
 		return chambreService.findAll();
 	}
-	
-	@GetMapping("/chambres/{idChambre}")
+
+	@GetMapping("/chambres/{idChambre}") 
 	public Chambre findOne(@PathVariable("idChambre") Long id) {
 		return chambreService.findOne(id);
 	}
-	
-	@PostMapping("/chambres")
+
+	@PostMapping("/chambres") 
 	public Chambre saveChambre(@RequestBody Chambre chambre) {
 		return chambreService.save(chambre);
 	}
@@ -44,18 +48,21 @@ public class ChambreController {
 	public void deleteChambre(@PathVariable("idChambre") Long id) {
 		chambreService.delete(id);
 	}
-	
-	@PutMapping("/chambres/{idChambre}")
-	public Chambre updateChambreWithPut(@PathVariable("idChambre") Long id, @RequestBody Chambre chambre) { //
-		Chambre currentChambre = chambreService.findOne(id);
-		currentChambre.setNumChambre(chambre.getNumChambre());
-		return chambreService.save(currentChambre);
+
+	@PutMapping("/chambres/{idChambre}") 
+	public Chambre updateChambreWithPut(@PathVariable("idChambre") Long id,
+			@RequestBody Chambre chambre) { //
+		Chambre currentUser = chambreService.findOne(id);
+		System.out.println(currentUser.toString());
+		currentUser.setNumChambre(chambre.getNumChambre()); 
+		return chambreService.save(currentUser);
 	}
 
 	@PatchMapping("/chambres/{idChambre}")
-	public Chambre updateChambreWithPatch(@PathVariable("idChambre") Long id, @RequestBody Chambre chambre) {
-		Chambre currentChambre = chambreService.findOne(id);
-		currentChambre.setNumChambre(chambre.getNumChambre());
-		return chambreService.save(currentChambre);
+	public Chambre updateChambreWithPatch(@PathVariable("idChambre") Long id,
+			@RequestBody Chambre chambre) {
+		Chambre currentUser = chambreService.findOne(id);
+		currentUser.setNumChambre(chambre.getNumChambre());
+		return chambreService.save(currentUser);
 	}
 }

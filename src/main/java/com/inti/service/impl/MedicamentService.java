@@ -3,11 +3,13 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.Medicament;
 import com.inti.repository.MedicamentRepository;
 import com.inti.service.interfaces.IMedicamentService;
 
+@Service
 public class MedicamentService implements IMedicamentService{
 
 	@Autowired

@@ -1,5 +1,7 @@
 package com.inti.entities;
 
+import java.sql.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +15,9 @@ public class Chambre {
 	private Long idChambre;
 	private int numChambre;
 	private int capacite;
-	@ManyToOne
 	private Dossier dossier;
+	private Date dateEntree;
+	private Date dateSortie;
 
 	public Chambre() {
 
@@ -24,6 +27,15 @@ public class Chambre {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
+	}
+	
+	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie) {
+		super();
+		this.numChambre = numChambre;
+		this.capacite = capacite;
+		this.dossier = dossier;
+		this.dateEntree = dateEntree;
+		this.dateSortie = dateSortie;
 	}
 
 	public Long getIdChambre() {
@@ -57,10 +69,27 @@ public class Chambre {
 	public void setDossier(Dossier dossier) {
 		this.dossier = dossier;
 	}
+	
+	public Date getDateEntree() {
+		return dateEntree;
+	}
+
+	public void setDateEntree(Date dateEntree) {
+		this.dateEntree = dateEntree;
+	}
+
+	public Date getDateSortie() {
+		return dateSortie;
+	}
+
+	public void setDateSortie(Date dateSortie) {
+		this.dateSortie = dateSortie;
+	}
 
 	@Override
 	public String toString() {
-		return "Chambre [idChambre=" + idChambre + ", numChambre=" + numChambre + ", capacite=" + capacite + "]";
-	}
-
+		return "Chambre [idChambre=" + idChambre + ", numChambre=" + numChambre + ", capacite=" + capacite
+				+ ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie + "]";
+	}	
+	
 }

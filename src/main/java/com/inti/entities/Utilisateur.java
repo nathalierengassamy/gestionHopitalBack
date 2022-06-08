@@ -96,7 +96,7 @@ public class Utilisateur implements Serializable {
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password,
 			Date dateNaissance, String adresseUtilisateur, int ageUtilisateur, int telephone, Set<Role> roles,
 			Dossier dossiers, List<Medicament> medicaments, List<Message> messages, List<Ordonnance> ordonnances,
-			List<rdv> rdvs) {
+			List<RDV> rdvs) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
