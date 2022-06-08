@@ -2,29 +2,41 @@ package com.inti.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.inti.entities.Chambre;
+import com.inti.entities.Chambre;
+import com.inti.repository.ChambreRepository;
 import com.inti.service.interfaces.IChambreService;
 
 public class ChambreService implements IChambreService {
 
+	@Autowired
+	ChambreRepository chambreRepository;
+	
 	@Override
 	public List<Chambre> findAll() {
-		return null;
+		
+		return chambreRepository.findAll();
 	}
 
 	@Override
 	public Chambre findOne(Long id) {
-		return null;
+		
+		return chambreRepository.findById(id).get();
 	}
 
 	@Override
-	public Chambre save(Chambre rdv) {
-		return null;
+	public Chambre save(Chambre chambre) {
+
+		return chambreRepository.save(chambre);
 	}
 
 	@Override
 	public void delete(Long id) {
+		chambreRepository.deleteById(id);
 		
 	}
+
 
 }

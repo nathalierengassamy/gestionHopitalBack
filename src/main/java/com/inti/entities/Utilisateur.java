@@ -44,9 +44,9 @@ public class Utilisateur implements Serializable {
 	@OneToMany(mappedBy = "user")
 	private List<Message> messages = new ArrayList<>();
 	@OneToMany(mappedBy = "user")
-	private List<Ordonnace> ordonnances = new ArrayList<>();
+	private List<Ordonnance> ordonnances = new ArrayList<>();
 	@OneToMany(mappedBy = "user")
-	private List<rendezVous> rendezVous = new ArrayList<>();
+	private List<RDV> rdvs = new ArrayList<>();
 	
 
 	public Utilisateur() {
@@ -95,8 +95,8 @@ public class Utilisateur implements Serializable {
 	
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password,
 			Date dateNaissance, String adresseUtilisateur, int ageUtilisateur, int telephone, Set<Role> roles,
-			Dossier dossiers, List<Medicament> medicaments, List<Message> messages, List<Ordonnace> ordonnances,
-			List<rendezVous> rendezVous) {
+			Dossier dossiers, List<Medicament> medicaments, List<Message> messages, List<Ordonnance> ordonnances,
+			List<rdv> rdvs) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
@@ -111,7 +111,7 @@ public class Utilisateur implements Serializable {
 		this.medicaments = medicaments;
 		this.messages = messages;
 		this.ordonnances = ordonnances;
-		this.rendezVous = rendezVous;
+		this.rdvs = rdvs;
 	}
 
 	public Long getIdUtilisateur() {
@@ -218,20 +218,20 @@ public class Utilisateur implements Serializable {
 		this.messages = messages;
 	}
 
-	public List<Ordonnace> getOrdonnances() {
+	public List<Ordonnance> getOrdonnances() {
 		return ordonnances;
 	}
 
-	public void setOrdonnances(List<Ordonnace> ordonnances) {
+	public void setOrdonnances(List<Ordonnance> ordonnances) {
 		this.ordonnances = ordonnances;
 	}
 
-	public List<rendezVous> getRendezVous() {
-		return rendezVous;
+	public List<RDV> getRendezVous() {
+		return rdvs;
 	}
 
-	public void setRendezVous(List<rendezVous> rendezVous) {
-		this.rendezVous = rendezVous;
+	public void setRendezVous(List<RDV> rdvs) {
+		this.rdvs = rdvs;
 	}
 
 	@Override
