@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idRDV;
+	private Long idMessage;
 	private String libelle;
 	@ManyToOne
 	private Utilisateur user;
@@ -27,11 +27,11 @@ public class Message {
 	}
 
 	public Long getIdRDV() {
-		return idRDV;
+		return idMessage;
 	}
 
-	public void setIdRDV(Long idRDV) {
-		this.idRDV = idRDV;
+	public void setIdRDV(Long idMessage) {
+		this.idMessage = idMessage;
 	}
 
 	public String getLibelle() {
@@ -52,7 +52,7 @@ public class Message {
 
 	@Override
 	public String toString() {
-		return "Message [idRDV=" + idRDV + ", libelle=" + libelle + ", user=" + user + "]";
+		return "Message [idMessage=" + idMessage + ", libelle=" + libelle + ", user=" + user + "]";
 	}
 
 }
