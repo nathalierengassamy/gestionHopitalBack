@@ -47,7 +47,6 @@ public class Utilisateur implements Serializable {
 	private List<Ordonnance> ordonnances = new ArrayList<>();
 	@OneToMany(mappedBy = "user")
 	private List<RDV> rdvs = new ArrayList<>();
-	
 
 	public Utilisateur() {
 	}
@@ -57,7 +56,7 @@ public class Utilisateur implements Serializable {
 		this.prenomUtilisateur = prenomUtilisateur;
 		this.roles = roles;
 	}
-	
+
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username) {
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
@@ -72,7 +71,7 @@ public class Utilisateur implements Serializable {
 		this.password = password;
 		this.roles = roles;
 	}
-	
+
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, Date dateNaissance,
 			Set<Role> roles) {
 		super();
@@ -92,12 +91,11 @@ public class Utilisateur implements Serializable {
 		this.dateNaissance = dateNaissance;
 		this.roles = roles;
 	}
-	
+
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password,
 			Date dateNaissance, String adresseUtilisateur, int ageUtilisateur, int telephone, Set<Role> roles,
 			Dossier dossiers, List<Medicament> medicaments, List<Message> messages, List<Ordonnance> ordonnances,
 			List<RDV> rdvs) {
-		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
 		this.username = username;
@@ -111,6 +109,14 @@ public class Utilisateur implements Serializable {
 		this.medicaments = medicaments;
 		this.messages = messages;
 		this.ordonnances = ordonnances;
+		this.rdvs = rdvs;
+	}
+
+	public List<RDV> getRdvs() {
+		return rdvs;
+	}
+
+	public void setRdvs(List<RDV> rdvs) {
 		this.rdvs = rdvs;
 	}
 
@@ -161,7 +167,7 @@ public class Utilisateur implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	public Date getDateNaissance() {
 		return dateNaissance;
 	}
@@ -169,7 +175,7 @@ public class Utilisateur implements Serializable {
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-	
+
 	public String getAdresseUtilisateur() {
 		return adresseUtilisateur;
 	}
@@ -241,5 +247,5 @@ public class Utilisateur implements Serializable {
 				+ ", dateNaissance=" + dateNaissance + ", adresseUtilisateur=" + adresseUtilisateur
 				+ ", ageUtilisateur=" + ageUtilisateur + ", telephone=" + telephone + ", roles=" + roles + "]";
 	}
-	
+
 }

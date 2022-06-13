@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -14,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Column;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.JoinColumn;
@@ -43,10 +41,8 @@ public class Dossier implements Serializable {
 		this.ordonnances = ordonnances;
 		this.chambres = chambres;
 	}
-	
-	public Dossier(List<Facture> factures, List<Ordonnance> ordonnances, Set<Chambre> chambres,
-			Utilisateur user) {
-		super();
+
+	public Dossier(List<Facture> factures, List<Ordonnance> ordonnances, Set<Chambre> chambres, Utilisateur user) {
 		this.factures = factures;
 		this.ordonnances = ordonnances;
 		this.chambres = chambres;
@@ -84,12 +80,12 @@ public class Dossier implements Serializable {
 	public void setChambres(Set<Chambre> chambres) {
 		this.chambres = chambres;
 	}
-	
-	public Utilisateur getUtilisateur() {
+
+	public Utilisateur getUser() {
 		return user;
 	}
 
-	public void setUtilisateur(Utilisateur user) {
+	public void setUser(Utilisateur user) {
 		this.user = user;
 	}
 

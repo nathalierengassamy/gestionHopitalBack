@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Medicament;
 import com.inti.service.interfaces.IMedicamentService;
-import com.inti.service.interfaces.IMedicamentService;
 
 @RestController
 @CrossOrigin

@@ -1,15 +1,15 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Chambre {
+public class Chambre implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idChambre;
@@ -29,7 +29,7 @@ public class Chambre {
 		this.capacite = capacite;
 		this.dossier = dossier;
 	}
-	
+
 	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
@@ -37,7 +37,7 @@ public class Chambre {
 		this.dateEntree = dateEntree;
 		this.dateSortie = dateSortie;
 	}
-	
+
 	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie, boolean occupe) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
@@ -78,7 +78,7 @@ public class Chambre {
 	public void setDossier(Dossier dossier) {
 		this.dossier = dossier;
 	}
-	
+
 	public Date getDateEntree() {
 		return dateEntree;
 	}
@@ -94,7 +94,7 @@ public class Chambre {
 	public void setDateSortie(Date dateSortie) {
 		this.dateSortie = dateSortie;
 	}
-	
+
 	public boolean isOccupe() {
 		return occupe;
 	}
@@ -109,5 +109,5 @@ public class Chambre {
 				+ ", dossier=" + dossier + ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie + ", occupe="
 				+ occupe + "]";
 	}
-	
+
 }

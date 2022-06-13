@@ -16,7 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Medicament implements Serializable{
+public class Medicament implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idMedicament;
@@ -24,15 +24,13 @@ public class Medicament implements Serializable{
 	private int prixMedicament;
 	private Date dateExpiration;
 	private double stock;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "Med", joinColumns = @JoinColumn(name = "id_med", 
-	referencedColumnName = "idMedicament"), 
-	inverseJoinColumns = @JoinColumn(name = "id_ordonnance", referencedColumnName = "idOrdonnance"))
+	@JoinTable(name = "Med", joinColumns = @JoinColumn(name = "id_med", referencedColumnName = "idMedicament"), inverseJoinColumns = @JoinColumn(name = "id_ordonnance", referencedColumnName = "idOrdonnance"))
 	private Set<Ordonnance> ordonnances = new HashSet<>();
-	
+
 	@ManyToOne
-	@JoinColumn(name="id_user")
+	@JoinColumn(name = "id_user")
 	private Utilisateur user;
 
 	public Medicament() {
@@ -96,11 +94,11 @@ public class Medicament implements Serializable{
 		this.ordonnances = ordonnances;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public Utilisateur getUser() {
 		return user;
 	}
 
-	public void setUtilisateur(Utilisateur user) {
+	public void setUser(Utilisateur user) {
 		this.user = user;
 	}
 
@@ -110,5 +108,5 @@ public class Medicament implements Serializable{
 				+ ", prixMedicament=" + prixMedicament + ", dateExpiration=" + dateExpiration + ", stock=" + stock
 				+ ", ordonnances=" + ordonnances + ", user=" + user + "]";
 	}
-	
+
 }

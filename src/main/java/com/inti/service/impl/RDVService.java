@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.entities.RDV;
-import com.inti.entities.RDV;
 import com.inti.repository.RDVRepository;
 import com.inti.service.interfaces.IRDVService;
 

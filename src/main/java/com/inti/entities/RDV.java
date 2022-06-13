@@ -1,7 +1,7 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.util.Date;
-
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class RDV {
+public class RDV implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idRDV;
@@ -73,11 +73,11 @@ public class RDV {
 		this.diagnostic = diagnostic;
 	}
 
-	public Utilisateur getUtilisateur() {
+	public Utilisateur getUser() {
 		return user;
 	}
 
-	public void setUtilisateur(Utilisateur user) {
+	public void setUser(Utilisateur user) {
 		this.user = user;
 	}
 

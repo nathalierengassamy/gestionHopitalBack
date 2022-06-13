@@ -2,8 +2,6 @@ package com.inti.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Message;
@@ -29,12 +26,12 @@ public class MessageController {
 	public List<Message> findAll() {
 		return messageService.findAll();
 	}
-	
+
 	@GetMapping("/messages/{idMessage}")
 	public Message findOne(@PathVariable("idMessage") Long id) {
 		return messageService.findOne(id);
 	}
-	
+
 	@PostMapping("/messages")
 	public Message saveMessage(@RequestBody Message message) {
 		return messageService.save(message);
@@ -44,7 +41,7 @@ public class MessageController {
 	public void deleteMessage(@PathVariable("idMessage") Long id) {
 		messageService.delete(id);
 	}
-	
+
 	@PutMapping("/messages/{idMessage}")
 	public Message updateMessageWithPut(@PathVariable("idMessage") Long id, @RequestBody Message message) { //
 		Message currentMessage = messageService.findOne(id);
