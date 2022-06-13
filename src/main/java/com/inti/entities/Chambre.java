@@ -18,6 +18,7 @@ public class Chambre {
 	private Dossier dossier;
 	private Date dateEntree;
 	private Date dateSortie;
+	private boolean occupe = false;
 
 	public Chambre() {
 
@@ -30,12 +31,20 @@ public class Chambre {
 	}
 	
 	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie) {
-		super();
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
 		this.dateEntree = dateEntree;
 		this.dateSortie = dateSortie;
+	}
+	
+	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie, boolean occupe) {
+		this.numChambre = numChambre;
+		this.capacite = capacite;
+		this.dossier = dossier;
+		this.dateEntree = dateEntree;
+		this.dateSortie = dateSortie;
+		this.occupe = occupe;
 	}
 
 	public Long getIdChambre() {
@@ -85,11 +94,20 @@ public class Chambre {
 	public void setDateSortie(Date dateSortie) {
 		this.dateSortie = dateSortie;
 	}
+	
+	public boolean isOccupe() {
+		return occupe;
+	}
+
+	public void setOccupe(boolean occupe) {
+		this.occupe = occupe;
+	}
 
 	@Override
 	public String toString() {
 		return "Chambre [idChambre=" + idChambre + ", numChambre=" + numChambre + ", capacite=" + capacite
-				+ ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie + "]";
-	}	
+				+ ", dossier=" + dossier + ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie + ", occupe="
+				+ occupe + "]";
+	}
 	
 }
