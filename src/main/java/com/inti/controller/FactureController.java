@@ -23,6 +23,11 @@ public class FactureController {
 	public List<Facture> findAll() {
 		return factureService.findAll();
 	}
+	
+	@GetMapping("/factures/{dossier}") //à tester
+	public List<Facture> findByDossier(Long id) {
+		return factureService.findByDossier(id);
+	}
 
 	@GetMapping("/factures/{idFacture}") 
 	public Facture findOne(@PathParam("idFacture") Long id) {

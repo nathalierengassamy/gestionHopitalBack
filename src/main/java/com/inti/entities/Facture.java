@@ -17,6 +17,7 @@ public class Facture implements Serializable {
 	private Long idFacture;
 	private double montant;
 	private String destinataire;
+	private boolean paye;
 	@ManyToOne()
 	@JoinColumn(name = "id_dossier")
 	private Dossier dossier;
@@ -71,10 +72,18 @@ public class Facture implements Serializable {
 		this.dossier = dossier;
 	}
 
+	public boolean isPaye() {
+		return paye;
+	}
+
+	public void setPaye(boolean paye) {
+		this.paye = paye;
+	}
+
 	@Override
 	public String toString() {
-		return "Facture [idFacture=" + idFacture + ", montant=" + montant + ", destinataire=" + destinataire
-				+ ", dossier=" + dossier + "]";
+		return "Facture [idFacture=" + idFacture + ", montant=" + montant + ", destinataire=" + destinataire + ", paye="
+				+ paye + ", dossier=" + dossier + "]";
 	}
 
 }
