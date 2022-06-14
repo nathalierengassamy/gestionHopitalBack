@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inti.entities.Message;
-import com.inti.entities.Message;
 import com.inti.repository.MessageRepository;
 import com.inti.service.interfaces.IMessageService;
 

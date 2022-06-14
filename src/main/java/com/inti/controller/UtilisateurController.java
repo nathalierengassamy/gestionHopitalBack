@@ -2,8 +2,6 @@ package com.inti.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -24,17 +22,17 @@ public class UtilisateurController {
 	@Autowired
 	IUtilisateurService utilisateurService;
 
-	@GetMapping("/utilisateurs") 
+	@GetMapping("/utilisateurs")
 	public List<Utilisateur> findAll() {
 		return utilisateurService.findAll();
 	}
 
-	@GetMapping("/utilisateurs/{idUtilisateur}") 
+	@GetMapping("/utilisateurs/{idUtilisateur}")
 	public Utilisateur findOne(@PathVariable("idUtilisateur") Long id) {
 		return utilisateurService.findOne(id);
 	}
 
-	@PostMapping("/utilisateurs") 
+	@PostMapping("/utilisateurs")
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 		return utilisateurService.save(utilisateur);
 	}
@@ -44,13 +42,13 @@ public class UtilisateurController {
 		utilisateurService.delete(id);
 	}
 
-	@PutMapping("/utilisateurs/{idUtilisateur}") 
+	@PutMapping("/utilisateurs/{idUtilisateur}")
 	public Utilisateur updateUtilisateurWithPut(@PathVariable("idUtilisateur") Long id,
 			@RequestBody Utilisateur utilisateur) { //
 		Utilisateur currentUser = utilisateurService.findOne(id);
 		System.out.println(currentUser.toString());
-		currentUser.setNomUtilisateur(utilisateur.getNomUtilisateur()); 
-		currentUser.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur()); 
+		currentUser.setNomUtilisateur(utilisateur.getNomUtilisateur());
+		currentUser.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur());
 		currentUser.setUsername(utilisateur.getUsername());
 		currentUser.setPassword(utilisateur.getPassword());
 		currentUser.setDateNaissance(utilisateur.getDateNaissance());

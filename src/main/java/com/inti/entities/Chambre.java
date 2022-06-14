@@ -1,15 +1,15 @@
 package com.inti.entities;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class Chambre {
+public class Chambre implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idChambre;
@@ -18,6 +18,7 @@ public class Chambre {
 	private Dossier dossier;
 	private Date dateEntree;
 	private Date dateSortie;
+	private boolean occupe = false;
 
 	public Chambre() {
 
@@ -28,14 +29,22 @@ public class Chambre {
 		this.capacite = capacite;
 		this.dossier = dossier;
 	}
-	
+
 	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie) {
-		super();
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
 		this.dateEntree = dateEntree;
 		this.dateSortie = dateSortie;
+	}
+
+	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie, boolean occupe) {
+		this.numChambre = numChambre;
+		this.capacite = capacite;
+		this.dossier = dossier;
+		this.dateEntree = dateEntree;
+		this.dateSortie = dateSortie;
+		this.occupe = occupe;
 	}
 
 	public Long getIdChambre() {
@@ -69,7 +78,7 @@ public class Chambre {
 	public void setDossier(Dossier dossier) {
 		this.dossier = dossier;
 	}
-	
+
 	public Date getDateEntree() {
 		return dateEntree;
 	}
@@ -86,10 +95,19 @@ public class Chambre {
 		this.dateSortie = dateSortie;
 	}
 
+	public boolean isOccupe() {
+		return occupe;
+	}
+
+	public void setOccupe(boolean occupe) {
+		this.occupe = occupe;
+	}
+
 	@Override
 	public String toString() {
 		return "Chambre [idChambre=" + idChambre + ", numChambre=" + numChambre + ", capacite=" + capacite
-				+ ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie + "]";
-	}	
-	
+				+ ", dossier=" + dossier + ", dateEntree=" + dateEntree + ", dateSortie=" + dateSortie + ", occupe="
+				+ occupe + "]";
+	}
+
 }

@@ -2,8 +2,6 @@ package com.inti.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,20 +11,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Role;
-import com.inti.entities.Role;
 import com.inti.service.interfaces.IRoleService;
 
-@RestController 
+@RestController
 @CrossOrigin
 public class RoleController {
 	@Autowired
 	IRoleService roleService;
 
-	@GetMapping("/roles") 
+	@GetMapping("/roles")
 	public List<Role> findAll() {
 		return roleService.findAll();
 	}
@@ -36,18 +32,18 @@ public class RoleController {
 		return roleService.findOne(id);
 	}
 
-	@PostMapping("/roles") 
+	@PostMapping("/roles")
 	public Role saveRole(@RequestBody Role role) {
 		return roleService.save(role);
 	}
 
-	@DeleteMapping("/roles/{idRole}") 
+	@DeleteMapping("/roles/{idRole}")
 	public void deleteRole(@PathVariable("idRole") Long id) {
 		roleService.delete(id);
 	}
-	
+
 	@PutMapping("/roles/{idRole}")
-	public Role updateRoleWithPut(@PathVariable("idRole") Long id, @RequestBody Role role) { 
+	public Role updateRoleWithPut(@PathVariable("idRole") Long id, @RequestBody Role role) {
 		Role currentRole = roleService.findOne(id);
 		currentRole.setLibelle(role.getLibelle());
 		return roleService.save(currentRole);
