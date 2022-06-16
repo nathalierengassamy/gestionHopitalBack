@@ -45,10 +45,7 @@ public class UtilisateurController {
 		utilisateur.getPrenomUtilisateur(),
 		utilisateur.getUsername(),
 		passwordEncoder.encode(utilisateur.getPassword()),
-		utilisateur.getRoles()); 
-		utilisateur.getAdresseUtilisateur();
-		utilisateur.getAgeUtilisateur();
-		utilisateur.getDateNaissance();
+		utilisateur.getRoles());
 		return utilisateurService.save(currentUser); 
 	}
 
