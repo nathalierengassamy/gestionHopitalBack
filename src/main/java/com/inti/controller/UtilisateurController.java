@@ -39,14 +39,9 @@ public class UtilisateurController {
 		return utilisateurs;
 	}
 
-	@PostMapping("utilisateurs") 
-	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) { 
-		Utilisateur currentUser=new Utilisateur(utilisateur.getNomUtilisateur(),
-		utilisateur.getPrenomUtilisateur(),
-		utilisateur.getUsername(),
-		passwordEncoder.encode(utilisateur.getPassword()),
-		utilisateur.getRoles());
-		return utilisateurService.save(currentUser); 
+	@PostMapping("/utilisateurs") // @RequestMapping(value="/utilisateurs", method=RequestMethod.POST)
+	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
+		return utilisateurService.save(utilisateur);
 	}
 
 	@DeleteMapping("utilisateurs/{idUtilisateur}")

@@ -15,7 +15,7 @@ public class Chambre implements Serializable {
 	private Long idChambre;
 	private int numChambre;
 	private int capacite;
-	private Dossier dossier;
+	private String dossier;
 	private Date dateEntree;
 	private Date dateSortie;
 	private boolean occupe = false;
@@ -24,13 +24,13 @@ public class Chambre implements Serializable {
 
 	}
 
-	public Chambre(int numChambre, int capacite, Dossier dossier) {
+	public Chambre(int numChambre, int capacite, String dossier) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
 	}
 
-	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie) {
+	public Chambre(int numChambre, int capacite, String dossier, Date dateEntree, Date dateSortie) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
@@ -38,7 +38,7 @@ public class Chambre implements Serializable {
 		this.dateSortie = dateSortie;
 	}
 
-	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie, boolean occupe) {
+	public Chambre(int numChambre, int capacite, String dossier, Date dateEntree, Date dateSortie, boolean occupe) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
@@ -71,11 +71,11 @@ public class Chambre implements Serializable {
 		this.capacite = capacite;
 	}
 
-	public Dossier getDossier() {
+	public String getString() {
 		return dossier;
 	}
 
-	public void setDossier(Dossier dossier) {
+	public void setString(String dossier) {
 		this.dossier = dossier;
 	}
 
