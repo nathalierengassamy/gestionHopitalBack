@@ -34,6 +34,7 @@ public class Utilisateur implements Serializable {
 	private String adresseUtilisateur;
 	private int ageUtilisateur;
 	private int telephone;
+	private boolean enabled = true;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "PROFILS", joinColumns = @JoinColumn(name = "id_user", referencedColumnName = "idUtilisateur"), inverseJoinColumns = @JoinColumn(name = "id_role", referencedColumnName = "idRole"))
 	private Set<Role> roles = new HashSet<>();
@@ -89,6 +90,22 @@ public class Utilisateur implements Serializable {
 		this.username = username;
 		this.password = password;
 		this.dateNaissance = dateNaissance;
+		this.roles = roles;
+	}
+	
+	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password,
+			Date dateNaissance, String adresseUtilisateur, int ageUtilisateur, int telephone, boolean enabled,
+			Set<Role> roles) {
+		super();
+		this.nomUtilisateur = nomUtilisateur;
+		this.prenomUtilisateur = prenomUtilisateur;
+		this.username = username;
+		this.password = password;
+		this.dateNaissance = dateNaissance;
+		this.adresseUtilisateur = adresseUtilisateur;
+		this.ageUtilisateur = ageUtilisateur;
+		this.telephone = telephone;
+		this.enabled = enabled;
 		this.roles = roles;
 	}
 
@@ -239,13 +256,22 @@ public class Utilisateur implements Serializable {
 	public void setRendezVous(List<RDV> rdvs) {
 		this.rdvs = rdvs;
 	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 
 	@Override
 	public String toString() {
 		return "Utilisateur [idUtilisateur=" + idUtilisateur + ", nomUtilisateur=" + nomUtilisateur
 				+ ", prenomUtilisateur=" + prenomUtilisateur + ", username=" + username + ", password=" + password
 				+ ", dateNaissance=" + dateNaissance + ", adresseUtilisateur=" + adresseUtilisateur
-				+ ", ageUtilisateur=" + ageUtilisateur + ", telephone=" + telephone + ", roles=" + roles + "]";
+				+ ", ageUtilisateur=" + ageUtilisateur + ", telephone=" + telephone + ", enabled=" + enabled
+				+ ", roles=" + roles + "]";
 	}
-
+	
 }

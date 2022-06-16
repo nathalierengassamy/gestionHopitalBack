@@ -22,7 +22,7 @@
 		<item value="org.eclipse.m2e.feature:1.18.2.20211011-2139"/>
 		<item value="org.eclipse.m2e.logback.feature:1.17.2.20211002-1029"/>
 		<item value="org.eclipse.m2e.wtp.feature:1.4.4.20201128-1705"/>
-		<item value="org.eclipse.mylyn.wikitext.editors_feature:3.0.40.202110140008"/>
+		<item value="org.eclipse.mylyn.wikitext.editors_feature:3.0.42.202201072301"/>
 		<item value="org.eclipse.pde:3.14.900.v20210906-0500"/>
 		<item value="org.eclipse.platform:4.21.0.v20210906-0842"/>
 		<item value="org.eclipse.rcp:4.21.0.v20210906-0842"/>

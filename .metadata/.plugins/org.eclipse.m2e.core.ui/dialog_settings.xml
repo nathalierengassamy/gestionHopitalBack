@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="/home/in-tl-006/Documents/CJFS/PFF/gestionHopitalBack"/>
 			<item value="/home/in-ly-033/Documents/CJFS/projetHopital/gestionHopitalBack"/>
 		</list>
 		<list key="projectNameTemplate">
