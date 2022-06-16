@@ -106,7 +106,7 @@ public class Medicament implements Serializable {
 	public String toString() {
 		return "Medicament [idMedicament=" + idMedicament + ", libelleMedicament=" + libelleMedicament
 				+ ", prixMedicament=" + prixMedicament + ", dateExpiration=" + dateExpiration + ", stock=" + stock
-				+ ", ordonnances=" + ordonnances + ", user=" + user + "]";
+				+ ", ordonnances=" + ordonnances + "]";
 	}
 
 }

@@ -69,8 +69,7 @@ public class Message implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Message [idMessage=" + idMessage + ", dateMessage=" + dateMessage + ", libelle=" + libelle + ", user="
-				+ user + "]";
+		return "Message [idMessage=" + idMessage + ", dateMessage=" + dateMessage + ", libelle=" + libelle + "]";
 	}
 
 }

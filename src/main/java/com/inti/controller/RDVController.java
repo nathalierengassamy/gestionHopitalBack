@@ -45,14 +45,14 @@ public class RDVController {
 	@PutMapping("/rdvs/{idRDV}")
 	public RDV updateRDVWithPut(@PathVariable("idRDV") Long id, @RequestBody RDV rdv) { //
 		RDV currentRDV = rdvService.findOne(id);
-		currentRDV.setTypeRDV(rdv.getTypeRDV());
+		currentRDV.setTypeRDVs(rdv.getTypeRDVs());
 		return rdvService.save(currentRDV);
 	}
 
 	@PatchMapping("/rdvs/{idRDV}")
 	public RDV updateRDVWithPatch(@PathVariable("idRDV") Long id, @RequestBody RDV rdv) {
 		RDV currentRDV = rdvService.findOne(id);
-		currentRDV.setTypeRDV(rdv.getTypeRDV());
+		currentRDV.setTypeRDVs(rdv.getTypeRDVs());
 		return rdvService.save(currentRDV);
 	}
 }
