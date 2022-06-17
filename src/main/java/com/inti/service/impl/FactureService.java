@@ -12,27 +12,31 @@ import com.inti.service.interfaces.IFactureService;
 @Service
 public class FactureService implements IFactureService {
 	@Autowired
-	FactureRepository utilisateurRepository;
+	FactureRepository factureRepository;
 
 	@Override
 	public List<Facture> findAll() {
-		return utilisateurRepository.findAll();
+		return factureRepository.findAll();
 	}
 
 	@Override
 	public Facture findOne(Long id) {
 
-		return utilisateurRepository.findById(id).get();
+		return factureRepository.findById(id).get();
 	}
 
 	@Override
 	public Facture save(Facture facture) {
-		return utilisateurRepository.save(facture);
+		return factureRepository.save(facture);
 	}
 
 	@Override
 	public void delete(Long id) {
-		utilisateurRepository.deleteById(id);
+		factureRepository.deleteById(id);
 	}
+	
+	 public List<Facture> findByDossier(Long id) {
+	        return factureRepository.findByDossier(id);
+	    }
 
 }

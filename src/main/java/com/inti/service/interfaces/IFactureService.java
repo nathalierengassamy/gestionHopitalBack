@@ -12,5 +12,7 @@ public interface IFactureService {
 	Facture save(Facture facture);
 
 	void delete(Long id);
+	
+	public List<Facture> findByDossier(Long id);
 
 }

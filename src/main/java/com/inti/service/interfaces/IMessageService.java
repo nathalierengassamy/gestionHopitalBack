@@ -9,7 +9,7 @@ public interface IMessageService {
 	
 	Message findOne (Long id);
 	
-	Message save(Message rdv);
+	Message save(Message msg);
 	
 	void delete(Long id);
 }

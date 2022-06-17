@@ -1,12 +1,14 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
@@ -17,12 +19,19 @@ public class Message implements Serializable {
 	private Date dateMessage;
 	private String libelle;
 	@ManyToOne
+	@JoinColumn(name = "id_user")
 	private Utilisateur user;
 
 	public Message() {
 	}
 
 	public Message(String libelle, Utilisateur user) {
+		this.libelle = libelle;
+		this.user = user;
+	}
+	
+	public Message(Date dateMessage, String libelle, Utilisateur user) {
+		this.dateMessage = dateMessage;
 		this.libelle = libelle;
 		this.user = user;
 	}
@@ -35,12 +44,12 @@ public class Message implements Serializable {
 		this.idMessage = idMessage;
 	}
 
-	public Date getDate() {
+	public Date getDateMessage() {
 		return dateMessage;
 	}
 
-	public void setDate(Date date) {
-		this.dateMessage = date;
+	public void setDateMessage(Date dateMessage) {
+		this.dateMessage = dateMessage;
 	}
 
 	public String getLibelle() {
@@ -59,17 +68,9 @@ public class Message implements Serializable {
 		this.user = user;
 	}
 
-	public Date getDateMessage() {
-		return dateMessage;
-	}
-
-	public void setDateMessage(Date dateMessage) {
-		this.dateMessage = dateMessage;
-	}
-
 	@Override
 	public String toString() {
 		return "Message [idMessage=" + idMessage + ", dateMessage=" + dateMessage + ", libelle=" + libelle + "]";
 	}
-
+	
 }

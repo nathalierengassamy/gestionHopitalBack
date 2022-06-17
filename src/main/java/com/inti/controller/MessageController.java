@@ -2,6 +2,7 @@ package com.inti.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Message;
+import com.inti.entities.Message;
+import com.inti.service.interfaces.IMessageService;
 import com.inti.service.interfaces.IMessageService;
 
 @RestController // RestFul WS
@@ -43,7 +46,7 @@ public class MessageController {
 	}
 
 	@PutMapping("/messages/{idMessage}")
-	public Message updateMessageWithPut(@PathVariable("idMessage") Long id, @RequestBody Message message) { //
+	public Message updateMessageWithPut(@PathVariable("idMessage") Long id, @RequestBody Message message) {
 		Message currentMessage = messageService.findOne(id);
 		currentMessage.setLibelle(message.getLibelle());
 		return messageService.save(currentMessage);

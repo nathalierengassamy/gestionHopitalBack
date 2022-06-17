@@ -1,12 +1,15 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+
 import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Chambre implements Serializable {
@@ -15,7 +18,9 @@ public class Chambre implements Serializable {
 	private Long idChambre;
 	private int numChambre;
 	private int capacite;
-	private String dossier;
+	@ManyToOne()
+	@JoinColumn(name = "id_dossier")
+	private Dossier dossier;
 	private Date dateEntree;
 	private Date dateSortie;
 	private boolean occupe = false;
@@ -24,13 +29,13 @@ public class Chambre implements Serializable {
 
 	}
 
-	public Chambre(int numChambre, int capacite, String dossier) {
+	public Chambre(int numChambre, int capacite, Dossier dossier) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
 	}
 
-	public Chambre(int numChambre, int capacite, String dossier, Date dateEntree, Date dateSortie) {
+	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
@@ -38,7 +43,7 @@ public class Chambre implements Serializable {
 		this.dateSortie = dateSortie;
 	}
 
-	public Chambre(int numChambre, int capacite, String dossier, Date dateEntree, Date dateSortie, boolean occupe) {
+	public Chambre(int numChambre, int capacite, Dossier dossier, Date dateEntree, Date dateSortie, boolean occupe) {
 		this.numChambre = numChambre;
 		this.capacite = capacite;
 		this.dossier = dossier;
@@ -71,14 +76,6 @@ public class Chambre implements Serializable {
 		this.capacite = capacite;
 	}
 
-	public String getString() {
-		return dossier;
-	}
-
-	public void setString(String dossier) {
-		this.dossier = dossier;
-	}
-
 	public Date getDateEntree() {
 		return dateEntree;
 	}
@@ -101,6 +98,14 @@ public class Chambre implements Serializable {
 
 	public void setOccupe(boolean occupe) {
 		this.occupe = occupe;
+	}
+	
+	public Dossier getDossier() {
+		return dossier;
+	}
+
+	public void setDossier(Dossier dossier) {
+		this.dossier = dossier;
 	}
 
 	@Override

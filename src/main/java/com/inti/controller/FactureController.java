@@ -38,4 +38,10 @@ public class FactureController {
 	public void deleteFacture(@PathParam("idFacture") Long id) {
 		factureService.delete(id);
 	}
+	
+	@GetMapping("/factures/{idDossier}") //à tester
+    public List<Facture> findByDossier(@PathParam("idDossier") Long id) {
+        return factureService.findByDossier(id);
+    }
+
 }

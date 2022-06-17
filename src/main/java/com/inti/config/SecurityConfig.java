@@ -41,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		CorsConfiguration config = new CorsConfiguration();
 
 		config.setAllowCredentials(true);
-		config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+		config.setAllowedOrigins(Arrays.asList("http://localhost:43539"));
 		config.setAllowedMethods(Collections.singletonList("*")); // GET, POST, PUT, DELETE, PATCH
 		config.setAllowedHeaders(Collections.singletonList("*"));
 

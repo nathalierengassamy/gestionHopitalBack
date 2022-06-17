@@ -17,7 +17,7 @@ public class Facture implements Serializable {
 	private Long idFacture;
 	private double montant;
 	private String destinataire;
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "id_dossier")
 	private Dossier dossier;
 
